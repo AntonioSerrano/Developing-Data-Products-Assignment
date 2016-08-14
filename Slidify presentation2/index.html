@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Famous random distributions visualizer</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Famous random distributions visualizer">
+  <meta name="author" content="">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/custom.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="assets/img/logo.png">
+  </aside>
+  <hgroup class="auto-fadein">
+    <h1>Famous random distributions visualizer</h1>
+    <h2>by Antonio Serrano, August 2016</h2>
+    <p><br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Overview</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This presentation has been created as part of the peer assessment for the Coursera Developing Data Products course, offered by Johns Hopkins University through Coursera.org. The aim of the assignment is to ensure that the students are capable of using:</p>
+
+<ul>
+<li>Shiny package to build data product application</li>
+<li>R-Presentation or Slidify to create data product related presentations</li>
+</ul>
+
+<p>The Shiny app at hand draws random samples from 10 different famous probability distributions and plots the samples using base R functions. It is avalilable at:</p>
+
+<p><a href="https://antonioserrano.shinyapps.io/Famous_random_distributions_visualizer/">https://antonioserrano.shinyapps.io/Famous_random_distributions_visualizer/</a></p>
+
+<p>Source code for ui.R and server.R files are available on the GitHub repo: </p>
+
+<p><a href="https://github.com/AntonioSerrano/Developing-Data-Products-Assignment">https://github.com/AntonioSerrano/Developing-Data-Products-Assignment</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Available distributions</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Specifically, the app includes the following distributions:</p>
+
+<ul>
+<li>Discrete distributions:
+
+<ul>
+<li>Binomial (rbinom funcion embedded in R)</li>
+<li>Poisson (rpois)</li>
+<li>Geometric (rgeom)</li>
+</ul></li>
+<li>Continuous distributions:
+
+<ul>
+<li>Uniform (runif)</li>
+<li>Normal (rnorm)</li>
+<li>Log-normal (rlnorm)</li>
+<li>Exponential (rexp)</li>
+<li>Gamma (rgamma)</li>
+<li>Chi-square (rchisq)</li>
+<li>F (rf)</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Application layout</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The app has a slider panel on the left side. There you can select the sample size from 1 to 10,000 observations. Likewise, the parameters to be entered change according to the chosen distribution. You can modify those parameters as desired considering their space limitations.</p>
+
+<p>Each time you chose a distibution, sample size, and specific values for its parameters, R performs its corresponding random generation function. For instance, if you select a normal distribution with a sample size of 10, mean equal to 0 and standard deviation equal to 1, the software does this in the background:</p>
+
+<pre><code class="r">example &lt;- rnorm(n = 10, mean = 0, sd = 1)
+example
+</code></pre>
+
+<pre><code>##  [1] -1.3926889 -1.5032366 -0.5320992  0.5235865  0.6749375 -2.3340913
+##  [7]  0.7580667 -0.5164781 -2.4087766  0.2100822
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Application ouputs I</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>On the main panel at the right side you can select the type of output from the random distribution generated. In particular, you can visualize histograms, summary statistics, and raw data generated in table format.</p>
+
+<pre><code class="r">## Plot (histogram)
+hist(example,
+     breaks = 30)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Application ouputs I</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">## Summary statistics
+summary(example)
+</code></pre>
+
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -2.4090 -1.4760 -0.5243 -0.6521  0.4452  0.7581
+</code></pre>
+
+<p>Finally, both graphics and raw data from the random distributions can be downloaded by pressing the &quot;Download Graphic&quot; and &quot;Download Sample&quot; buttons respectively on the slider panel at the bottom.</p>
+
+<p><img src="assets/img/downloadGraphic.png" alt="optional caption text">
+<img src="assets/img/downloadSample.png" alt="optional caption text"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Overview'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Available distributions'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Application layout'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Application ouputs I'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Application ouputs I'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
