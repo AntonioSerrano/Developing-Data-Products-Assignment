@@ -13,3 +13,7 @@ The Shiny app at hand draws random samples from 10 different famous probability 
 https://antonioserrano.shinyapps.io/Famous_random_distributions_visualizer/
 
 Source code for ui.R and server.R files are available on this GitHub repo.
+
+Short presentation made with Slidify explaining the app is is avalilable here:
+
+https://antonioserrano.shinyapps.io/Famous_random_distributions_visualizer/
