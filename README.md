@@ -14,6 +14,6 @@ https://antonioserrano.shinyapps.io/Famous_random_distributions_visualizer/
 
 Source code for ui.R and server.R files are available on this GitHub repo.
 
-Short presentation made with RStudio Presenter explaining the app is is avalilable here:
+Short presentation made with RStudio Presenter explaining the app is avalilable here:
 
 http://rpubs.com/AntonioData/202414
